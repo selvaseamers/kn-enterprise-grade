@@ -1,0 +1,38 @@
+server:
+  servlet:
+    context-path: /api/enterprise-grade
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:mem:enterprise-grade-db
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    spring:
+      jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+    hibernate:
+      ddl-auto:  none
+
+application:
+  access:
+    roles:
+      user: VIEW
+      admin: ALLOW_EDIT
+    cred:
+      user:
+        selva: "selva123"
+        nagel: "nagel123"
+        kumar: "kumar123"
+      admin:
+        kuehne: "kuehne123"
+
+
+
+
