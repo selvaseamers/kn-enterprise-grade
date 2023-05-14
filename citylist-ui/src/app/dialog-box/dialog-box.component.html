@@ -1,0 +1,22 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>Update City Details</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    CityName : <input placeholder="local_data.cityName" matInput [(ngModel)]="local_data.cityName">
+
+    <input type="file" class="file-input" accept="image/*" (change)="onFileSelected($event)" #fileUpload>
+    <div class="file-upload">
+
+      {{fileName || "No file uploaded yet."}}
+
+      <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+        <mat-icon>attach_file</mat-icon>
+      </button>
+    </div>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">Update</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

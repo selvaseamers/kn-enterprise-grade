@@ -1,0 +1,28 @@
+<p>
+  <mat-toolbar color="primary">
+    <span class="example-spacer"></span>
+    <span>Graded City</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</p>
+<div class="login">
+  <h2 class="login-header">Log in</h2>
+  <form [formGroup]="authForm" class="login-container" (ngSubmit)="signIn()">
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls['email'].errors }">
+      <input type="text" placeholder="UserName" formControlName="email">
+    </p>
+    <div *ngIf="isSubmitted && formControls['email'].errors" class="help-block">
+      <div *ngIf="formControls['email'].errors['required']">UserName is required</div>
+    </div>
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls['password'].errors }">
+      <input type="password" placeholder="Password" formControlName="password">
+    </p>
+    <div *ngIf="isSubmitted && formControls['password'].errors" class="help-block">
+      <div *ngIf="formControls['password'].errors['required']">Password is required</div>
+    </div>
+    <div *ngIf="!isAuthorized">
+      <span style="color: red;">Username or password is incorrect</span>
+    </div>
+    <input type="submit" value="Log in">
+  </form>
+</div>

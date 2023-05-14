@@ -1,0 +1,7 @@
+.file-input {
+  display: none;
+}
+
+.mat-mdc-form-field {
+  min-width: 300px;
+}

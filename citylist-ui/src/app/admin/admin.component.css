@@ -1,0 +1,12 @@
+table {
+  width: 40px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-mdc-form-field, .mat-mdc-floating-label {
+  position: relative;
+    left: 50px;
+}
