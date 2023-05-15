@@ -21,6 +21,7 @@ spring:
       ddl-auto:  none
 
 application:
+  imgBaseUrl: http://localhost:8080/api/enterprise-grade/img/
   access:
     roles:
       user: VIEW

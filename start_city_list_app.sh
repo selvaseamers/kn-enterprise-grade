@@ -22,10 +22,10 @@ cd citylist.be
 echo "Starting backend ...."
 
 # Build the Spring Boot app and start the server in the background
-./gradlew bootRun --args='--spring.profiles.active=dev' >> spring-boot-app.log 2>&1 &
+./gradlew build -x test && ./gradlew bootRun --args='--spring.profiles.active=dev' >> spring-boot-app.log 2>&1 &
 
 # Wait for the Spring Boot server to start up
-sleep 30
+sleep 15
 
 echo "Starting frontend...."
 

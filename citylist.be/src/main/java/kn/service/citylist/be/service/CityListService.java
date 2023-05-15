@@ -7,7 +7,7 @@ import kn.service.citylist.be.exception.ApplicationException;
 import kn.service.citylist.be.repository.CityListRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.data.domain.Page;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,6 +27,9 @@ public class CityListService {
     private final CityListRepository cityListRepository;
 
     private final Path fileStorageLocation;
+
+    @Value("${application.imgBaseUrl}")
+    private String imageBaseUrl;
 
     public CityListService(CityListRepository cityListRepository) {
         this.cityListRepository = cityListRepository;
@@ -61,7 +64,7 @@ public class CityListService {
             LOGGER.info("Existing city details {} ", cityList);
             cityList.setCityName(cityName);
             if (null != imageFile) {
-                cityList.setImageUrl(saveImage(id, cityName, imageFile));
+                cityList.setImageUrl(uploadImage(id, cityName, imageFile));
             }
             cityListRepository.saveAndFlush(cityList);
             cityListTOBuilder
@@ -72,11 +75,11 @@ public class CityListService {
         return cityListTOBuilder.build();
     }
 
-    private String saveImage(long id, String cityName, MultipartFile file) {
+    private String uploadImage(long id, String cityName, MultipartFile file) {
         try {
             String newFileName = id + "_" + cityName + "_" + file.getOriginalFilename();
             Files.copy(file.getInputStream(), fileStorageLocation.resolve(newFileName), StandardCopyOption.REPLACE_EXISTING);
-            return "http://localhost:8080/api/enterprise-grade/img/" + newFileName;
+            return imageBaseUrl + newFileName;
         } catch (Exception e) {
             LOGGER.error("Error while saving file");
             e.printStackTrace();
