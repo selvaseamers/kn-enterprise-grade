@@ -18,15 +18,19 @@ ___
 
 ### For Mac/Linux Users: 
 use following script to run both springboot and angular app
+
 `./start_city_list_app.sh `
 to stop the running app
+
 `./stop_city_list_app.sh`
 ___
 
 ### For Windows Users:
 use following script to run both springboot and angular app
+
 `start_city_list_app.bat`
 to stop the running app
+
 `stop_city_list_app.bat`
 ___
 ### To run the app manually
