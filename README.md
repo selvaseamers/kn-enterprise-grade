@@ -6,7 +6,7 @@ which allows the user to do the following:
 * search by the name
 * edit the city (both name and photo) - Only by Admin
 
-This app is Developed using Springboot 2.7.11 with JAVA 17 for BackEnd and Angular 16 for FrontEnd
+This app is Developed using Springboot 2.7.11 with JAVA 17 for Back End and Angular 16 for Front End
 ___
 ## Pre-requests to run the application
 
@@ -17,20 +17,20 @@ ___
 ## How to run the application
 
 ### For Mac/Linux Users: 
-use following script to run both springboot and angular
+use following script to run both springboot and angular app
 ### `./start_city_list_app.sh `
 to stop the running app
 ### `./stop_city_list_app.sh`
 ___
 
 ### For Windows Users:
-use following script to run both springboot and angular
+use following script to run both springboot and angular app
 ### `start_city_list_app.bat`
 to stop the running app
 ### `stop_city_list_app.bat`
 ___
-### To run manually
-Have to run the backend and frontend separately 
+### To run the app manually
+Have to run the backend and frontend app separately 
 * to run springboot app
 
 `cd citylist.be
