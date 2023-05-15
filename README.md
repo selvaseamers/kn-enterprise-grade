@@ -14,10 +14,10 @@ ___
 
 Please make sure you have above versions installed before running the app
 ___
-## How to run the application
+## How to run the application with little effort
 
 ### For Mac/Linux Users: 
-use following script to run both springboot and angular app
+Use following script to run both springboot and angular app
 
 `./start_city_list_app.sh `
 
@@ -27,7 +27,7 @@ to stop the running app
 ___
 
 ### For Windows Users:
-use following script to run both springboot and angular app
+Use following script to run both springboot and angular app
 
 `start_city_list_app.bat`
 
@@ -36,7 +36,7 @@ to stop the running app
 `stop_city_list_app.bat`
 ___
 ### To run the app manually
-Have to run the backend and frontend app separately 
+In case of any issue running above script, have to run the backend and frontend app separately 
 * to run springboot app
 
 `cd citylist.be
