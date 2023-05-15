@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 public class CityListPaginatedResponseTO {
 
-    private String total;
+    private int total;
     private int pageSize;
     private int page;
     private List<CityListTO> cityList;

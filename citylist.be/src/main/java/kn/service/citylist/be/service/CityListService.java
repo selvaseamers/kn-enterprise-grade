@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,11 +36,13 @@ public class CityListService {
     public CityListPaginatedResponseTO getLimitedCityList(int page, int pageSize) {
 
         LOGGER.info("Querying DB");
-        Page<CityListDE> cityListDEList = cityListRepository.findAll(PageRequest.of(page, pageSize));
+        List<CityListDE> cityListDEList = cityListRepository.findAll(PageRequest.of(page, pageSize)).toList();
+        Optional<Integer> totalCount = cityListRepository.findCount();
         return CityListPaginatedResponseTO.builder()
                 .page(page)
                 .pageSize(pageSize)
-                .cityList(cityListDEList.map(de -> CityListTO.builder()
+                .total(totalCount.get())
+                .cityList(cityListDEList.stream().map(de -> CityListTO.builder()
                                 .cityName(de.getCityName())
                                 .id(de.getId())
                                 .imageUrl(de.getImageUrl())
@@ -69,7 +72,7 @@ public class CityListService {
         return cityListTOBuilder.build();
     }
 
-    public String saveImage(long id, String cityName, MultipartFile file) {
+    private String saveImage(long id, String cityName, MultipartFile file) {
         try {
             String newFileName = id + "_" + cityName + "_" + file.getOriginalFilename();
             Files.copy(file.getInputStream(), fileStorageLocation.resolve(newFileName), StandardCopyOption.REPLACE_EXISTING);
@@ -80,4 +83,5 @@ public class CityListService {
             throw new ApplicationException(e.getMessage());
         }
     }
+
 }

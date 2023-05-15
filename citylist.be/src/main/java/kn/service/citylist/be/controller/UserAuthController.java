@@ -15,9 +15,8 @@ import java.util.List;
 public class UserAuthController {
     private static final Logger LOGGER = LogManager.getLogger(UserAuthController.class.getName());
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<String>> getCityList(Authentication authentication) {
+    public ResponseEntity<List<String>> getRoles(Authentication authentication) {
         LOGGER.info("User Authenticated SuccessFully");
         return ResponseEntity.ok(authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList());
     }
