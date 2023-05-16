@@ -17,6 +17,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -43,7 +44,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatTooltipModule
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}],
   bootstrap: [AppComponent]
